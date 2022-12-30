@@ -1,3 +1,5 @@
+#pragma once
+
 #include <iostream>
 #include <queue>
 #include <thread>
@@ -12,17 +14,12 @@
 #include <vector>
 #include <chrono>
 
-
-// Mutex locks acsess to commands for every threads without one.
-
-
-// C++ 14
 class thread_pool {
 public:
-// ћетод, создающий массив из num_threads потоков. ¬ качестве данного метода - конструктор. // ѕринимает число потоков.
+    // ћетод, создающий массив из num_threads потоков. ¬ качестве данного метода - конструктор. // ѕринимает число потоков.
     thread_pool(uint32_t num_threads) {
         threads.reserve(num_threads);                       // F() Make empty space to new vector object. But space * num of threades.
-        for (uint32_t i = 0; i < num_threads; ++i) {         
+        for (uint32_t i = 0; i < num_threads; ++i) {
             threads.emplace_back(&thread_pool::run, this);   // F() Add element to end of vector. "this" point on "threade"
         }
     }
@@ -30,7 +27,7 @@ public:
     template <typename Func, typename ...Args>
     int64_t add_task(const Func& task_func, Args&&... args) {
         int64_t task_idx = last_idx++;
-        
+
         // Ќе блокирующий метод добавлени€ новой задачи. ѕринимает функцию task_func
         // и аргументы данной функции args и возвращает task_id (уникальный номер задачи).
         std::lock_guard<std::mutex> q_lock(q_mtx);                                  // Mutex a threade.
@@ -48,7 +45,7 @@ public:
         completed_task_ids_cv.wait(lock, [this, task_id]()->bool {   // Condition_variable for "completed_tasks" wait while "lock" mtx will unlocked 
                                                                                 // by predicate "[this, task_id]()->bool" that neans after complite task for thread "task id").
                                                                                 // When "task id" false then wait is working. 
-            return completed_task_ids.find(task_id) != completed_task_ids.end(); 
+            return completed_task_ids.find(task_id) != completed_task_ids.end();
             });
     }
     // Ѕлокирующий метод, дожидающийс€ завершени€ всех задач.
@@ -59,7 +56,7 @@ public:
             return q.empty() && last_idx == completed_task_ids.size();
             });
     }
-   // Ќе блокирующий метод, провер€ющий была ли выполнена задача с номером task_id
+    // Ќе блокирующий метод, провер€ющий была ли выполнена задача с номером task_id
     bool calculated(int64_t task_id) {
         std::lock_guard<std::mutex> lock(completed_task_ids_mtx);
         if (completed_task_ids.find(task_id) != completed_task_ids.end()) {
@@ -109,7 +106,7 @@ private:
             }
         }
     }
-                    //2 ---------------------------        
+    //2 ---------------------------        
     std::queue<std::pair<std::future<void>, int64_t>> q; // очередь задач - хранит функцию(задачу), которую нужно исполнить и номер данной задачи
     std::mutex q_mtx;
     std::condition_variable q_cv;
@@ -184,29 +181,4 @@ void run_test() {
     thread_pool_test(ans, arr1);//  52474
     without_thread_test(ans, arr1); // 83954
     raw_thread_test(ans, arr1); // 62386
-}
-
-class Test {
-public:
-    void operator() () {
-        std::cout << "Working with functors!\n";
-    }
-};
-
-void sum(int a, int b) {
-    std::cout << a + b << std::endl;
-}
-
-int main() {
-    //run_test();
-
-    Test test;
-    auto res = std::bind(sum, 2, 3);
-
-    thread_pool t(3);
-    t.add_task(test); // Got tasks for threade pool.
-    t.add_task(res);
-    t.wait_all();
-
-    return 0;
 }

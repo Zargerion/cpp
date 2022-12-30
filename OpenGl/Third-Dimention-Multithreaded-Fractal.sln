@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Queue", "..\Queue\Queue.vcx
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ThreadePool", "..\ThreadePool\ThreadePool.vcxproj", "{3AC56A1C-345B-48A0-B559-FA75C5960D7E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Fractals", "..\Fractals\Fractals.vcxproj", "{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{3AC56A1C-345B-48A0-B559-FA75C5960D7E}.Release|x64.Build.0 = Release|x64
 		{3AC56A1C-345B-48A0-B559-FA75C5960D7E}.Release|x86.ActiveCfg = Release|Win32
 		{3AC56A1C-345B-48A0-B559-FA75C5960D7E}.Release|x86.Build.0 = Release|Win32
+		{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}.Debug|x64.ActiveCfg = Debug|x64
+		{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}.Debug|x64.Build.0 = Debug|x64
+		{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}.Debug|x86.ActiveCfg = Debug|Win32
+		{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}.Debug|x86.Build.0 = Debug|Win32
+		{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}.Release|x64.ActiveCfg = Release|x64
+		{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}.Release|x64.Build.0 = Release|x64
+		{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}.Release|x86.ActiveCfg = Release|Win32
+		{3B326BC4-C0B6-411D-BDC5-6049F6D3692D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
