@@ -15,11 +15,38 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tr-pool-my.cpp">
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Fractals2.0.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="thread-pool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Fractals2.0.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tr-pool-oop.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Fractals2.0.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Fractals2.0.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

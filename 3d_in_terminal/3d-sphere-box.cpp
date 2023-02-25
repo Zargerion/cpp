@@ -21,7 +21,7 @@ void SetWindow(int Width, int Height)
 	SetConsoleWindowInfo(Handle, TRUE, &Rect);
 }
 
-int main2() {
+int main() {
 	int width = 120 * 2;
 	int height = 30 * 2;
 	SetWindow(width, height);

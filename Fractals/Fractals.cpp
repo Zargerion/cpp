@@ -142,7 +142,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             //rc = FPaintingArea(hWnd, hdc, rc);
-            //Painter(hdc, &RenderBuffer[0]);
+           // Painter(hdc, &RenderBuffer[0]);
             PainterV(hdc, RenderBufferV);
             EndPaint(hWnd, &ps);
         }
@@ -206,13 +206,13 @@ void PainterV(HDC hdc, std::vector<std::vector<int>> bufferV)
     }
 }
 
-void FPaintingArea(HWND hWnd, HDC hdc, RECT& rc)
-{
-    RECT clientrc;
-    GetClientRect(hWnd, &clientrc);
-    int sft = 0;
-    rc.left = sft;
-    rc.bottom = clientrc.bottom - sft;
-    rc.top = sft;
-    rc.right = clientrc.right - sft;
-}
+//void FPaintingArea(HWND hWnd, HDC hdc, RECT& rc)
+//{
+//    RECT clientrc;
+//    GetClientRect(hWnd, &clientrc);
+//    int sft = 0;
+//    rc.left = sft;
+//    rc.bottom = clientrc.bottom - sft;
+//    rc.top = sft;
+//    rc.right = clientrc.right - sft;
+//}

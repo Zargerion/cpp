@@ -15,11 +15,22 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="tr-pool-my.cpp">
+    <ClCompile Include="3d-sphere-box.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="tr-pool-oop.cpp">
+    <ClCompile Include="wall-2d-to-3d.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="funks.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vec2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vec3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

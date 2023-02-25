@@ -97,13 +97,13 @@ public:
             });
     }
 
-    std::any wait_result(const uint64_t task_id) {
+    /*std::any wait_result(const uint64_t task_id) {
         std::unique_lock<std::mutex> lock(tasks_info_mtx);
         tasks_info_cv.wait(lock, [this, task_id]()->bool {
             return task_id < last_idx&& tasks_info[task_id].status == TaskStatus::completed;
             });
         return tasks_info[task_id].result;
-    }
+    }*/
 
     template<class T>
     void wait_result(const uint64_t task_id, T& value) {
